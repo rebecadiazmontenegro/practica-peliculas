@@ -3,13 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Peliculas</title>
 </head>
-<header></header>
+<header>
+    <h1>REBEFLIX</h1>
+    <nav id="navbar" class="nav">
+        <ul class="menu">
+             <li>
+                <a href="buscar">Buscar</a>
+            </li>
+            <li>
+                <a href="#añadir">Añadir</a>
+            </li>
+            <li>
+                <a href="#peliculas">Películas</a>
+            </li>
+    </ul>
+    </nav>
+</header>
 <body>
+    <section id="buscar" onchange="">
+        <h2>Busca tu película</h2>
+        <article class="formBuscar">
+            <label>Introduce el título de la película que deseas encontrar</label>
+            <input 
+                type="text"
+                id="buscador"
+                name="buscador"
+                placeholder="Título de la película..."
+                required
+            />
+            <button class="botonBuscar">Buscar</button>
+        </article>
+    </section>
+    <section id="añadir">
+        <h2>Añade tu película</h2>
+        <article class="formularioAñadir">
+            <form>
+                <label>Título de la película</label>
+                <input
+                    type="text"
+                    id="titulo"
+                    name="titulo"
+                    placeholder="Insete el título..."
+                    required
+                />
+                <label>Año de estreno</label>
+                <input
+                    type="text"
+                    id="year"
+                    name="year"
+                    placeholder="¿En que año se estreno"
+                    required
+                />
+                <label>Año de estreno</label>
+                <input
+                    type="text"
+                    id="year"
+                    name="year"
+                    placeholder="¿En que año se estreno"
+                    required
+                />
+                <label>Género</label>
+                <select class="generoSelector" name="generoSelector">
+                    <option value="romance">Romance</option>
+                    <option value="musical">Musical</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="accion">Acción</option>
+                </select>
+            </form>
+        </article>
+    </section>
+    <section id="peliculas">
+        <h2>Tus Películas</h2>
+         <label>Buscar por género</label>
+                <select class="generoFilter" name="generoFilter">
+                    <option value="romance">Romance</option>
+                    <option value="musical">Musical</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="accion">Acción</option>
+                </select>
+        <div id="allPeliculas">
+            <article class="cardPelicula">
+                <img class="portada" src="./assets/regreso_al_futuro.jpg">    
+                <h3>Regreso al futuro</h3>
+                <p>1985</p>
+                <p>Ciencia ficción</p>
+            </article>
+        </div>
+    </section>
+    <footer>
+        <p>Politica de privacidad</p>
+        <p>Contacto</p>
+    </footer>
 
-   <script type="module" src="./js/script.js"></script>
+<script type="module" src="./js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 700;
+  --font-bold: 900;
+  --black: #0a0908ff;
+  --chocolate-cosmos: #49111cff;
+  --white-smoke: #f2f4f3ff;
+  --beaver: #a9927dff;
+  --walnut-brown: #5e503fff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--font-regular);
+  background-color: var(--white-smoke);
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: var(--font-bold);
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: var(--font-medium);
+  color: var(--chocolate-cosmos);
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: var(--font-medium);
+}
+
+p {
+  font-size: 20px;
+  font-weight: var(--font-regular);
+}
+
+/* ----- Header ----- */
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 32px;
+  background-color: var(--chocolate-cosmos);
+  color: var(--white-smoke);
+}
+
+/* ----- Navegador ----- */
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: var(--white-smoke);
+  font-size: 20px;
+  padding: 10px 16px;
+  border: 2px solid var(--white-smoke);
+  border-radius: 16px;
+  box-shadow: 2px 2px 8px var(--black);
+  transition: all 0.5s ease;
+}
+
+.menu li a:hover {
+  background-color: var(--white-smoke);
+  color: var(--chocolate-cosmos);
+}
+
+.menu li a:active {
+  background-color: var(--white-smoke);
+  color: var(--chocolate-cosmos);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+/* ----- Sección 1: Buscar pelicula por título ----- */
+
+#buscar {
+  padding: 120px 32px 20px 32px;
+}
+
+.formBuscar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-size: 20px;
+  color: black;
+}
+
+#buscador {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #6f6f6f;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#buscador:hover {
+  border: 2px solid var(--walnut-brown);
+}
+
+#buscador:active {
+  border: 2px solid var(--walnut-brown);
+  background-color: var(--beaver);
+}
+
+/* ----- Botón buscar película ----- */
+
+.botonBuscar {
+    border: 2px solid var(--chocolate-cosmos);
+    color: var(--chocolate-cosmos);            
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 8px;
+    font-weight: var(--font-medium);
+    box-shadow: 2px 2px 8px var(--walnut-brown);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+}
+
+.botonBuscar:hover {
+  background-color: var(--beaver);
+  border: 2px solid var(--walnut-brown);
+}
+
+.botonBuscar:active {
+  background-color: var(--beaver);
+  box-shadow: inset 4px 4px 8px var(--walnut-brown);
+}

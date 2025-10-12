@@ -6,17 +6,19 @@
   --font-medium: 700;
   --font-bold: 900;
   --black: #0a0908ff;
-  --chocolate-cosmos: #49111cff;
   --white-smoke: #f2f4f3ff;
-  --beaver: #a9927dff;
-  --walnut-brown: #5e503fff;
+  --rojo: #f32321;
+  --dark-grey: #393534;
+  --gold: #d4a373;
+  
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: var(--font-regular);
-  background-color: var(--white-smoke);
+  background-color: var(--dark-grey);
+  
 }
 
 h1 {
@@ -27,7 +29,7 @@ h1 {
 h2 {
   font-size: 30px;
   font-weight: var(--font-medium);
-  color: var(--chocolate-cosmos);
+  color: var(--white-smoke);
 }
 
 h3 {
@@ -40,6 +42,12 @@ p {
   font-weight: var(--font-regular);
 }
 
+label {
+  font-size: 20px;
+  color: var(--white-smoke);
+}
+
+
 /* ----- Header ----- */
 
 header {
@@ -50,9 +58,13 @@ header {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 32px;
-  background-color: var(--chocolate-cosmos);
+  padding: 4px 32px;
+  background-color: var(--dark-grey);
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
   color: var(--white-smoke);
+  box-shadow: 4px 4px 8px var(--black);
+  z-index: 10;
 }
 
 /* ----- Navegador ----- */
@@ -66,40 +78,76 @@ nav ul {
 .menu li a {
   text-decoration: none;
   color: var(--white-smoke);
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: var(--font-medium);
   padding: 10px 16px;
   border: 2px solid var(--white-smoke);
   border-radius: 16px;
-  box-shadow: 2px 2px 8px var(--black);
+  box-shadow: 4px 4px 8px var(--black);
   transition: all 0.5s ease;
 }
 
 .menu li a:hover {
   background-color: var(--white-smoke);
-  color: var(--chocolate-cosmos);
+  color: var(--dark-grey);
 }
 
 .menu li a:active {
   background-color: var(--white-smoke);
-  color: var(--chocolate-cosmos);
+  color: var(--dark-grey);
   box-shadow: inset 2px 2px 8px var(--black);
 }
 
-/* ----- Sección 1: Buscar pelicula por título ----- */
+
+
+/* ----- Sección 1: Bienvenido ----- */
+
+main{
+    width: 100%;
+    flex-grow: 1;
+}
+
+#home {
+  background: url(../assets/cinema.jpeg);
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 850px;
+  padding: 120px 32px 20px 32px;
+}
+
+.bienvenido {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 4px solid var(--dark-grey);
+  border-radius: 16px;
+  background-color: rgba(242, 244, 243, 0.7); /* Tiene que estar en rgb para poder añadirle algo de transparencia */
+  backdrop-filter: blur(5px);       
+  box-shadow: 8px 8px 8px var(--black);
+  color: var(--dark-grey);
+}
+
+.bienvenido h1 {
+ font-size: 50px;
+}
+
+
+
+/* ----- Sección 3: Buscar pelicula por título ----- */
 
 #buscar {
-  padding: 120px 32px 20px 32px;
+  padding: 32px 32px 20px 32px;
 }
 
 .formBuscar {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-label {
-  font-size: 20px;
-  color: black;
 }
 
 #buscador {
@@ -111,35 +159,235 @@ label {
 }
 
 #buscador:hover {
-  border: 2px solid var(--walnut-brown);
+  border: 2px solid var(--gold);
 }
 
-#buscador:active {
-  border: 2px solid var(--walnut-brown);
-  background-color: var(--beaver);
-}
+
+
 
 /* ----- Botón buscar película ----- */
 
 .botonBuscar {
-    border: 2px solid var(--chocolate-cosmos);
-    color: var(--chocolate-cosmos);            
+    border: 2px solid var(--white-smoke);
+    color: var(--white-smoke);
+    background-color: var(--dark-grey);    
     padding: 10px 20px;
     width: 120px;
     border-radius: 8px;
     font-weight: var(--font-medium);
-    box-shadow: 2px 2px 8px var(--walnut-brown);
+    box-shadow: 4px 4px 8px var(--black);
     cursor: pointer;
     transition: background-color 0.3s;
   
 }
 
 .botonBuscar:hover {
-  background-color: var(--beaver);
-  border: 2px solid var(--walnut-brown);
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
 }
 
 .botonBuscar:active {
-  background-color: var(--beaver);
-  box-shadow: inset 4px 4px 8px var(--walnut-brown);
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+
+
+/* ----- Sección 4: Añadir película----- */
+
+#añadir {
+  padding: 16px 32px;
+}
+
+.formularioAñadir {
+  display: flex;
+  padding: 24px 32px 24px 24px;
+  border: 2px solid var(--white-smoke);
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formularioAñadir form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+}
+
+.fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Hace dos columnas iguales */
+    width: 100%;
+    gap: 32px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #6f6f6f;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.campo input:hover {
+  border: 2px solid var(--gold);
+}
+
+.campo select:hover {
+  border: 2px solid var(--);
+}
+
+.añadirTodo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* ----- Botón añadir película ----- */
+
+.botonAñadir {
+    border: 2px solid var(--white-smoke);
+    color: var(--white-smoke);
+    background-color: var(--dark-grey);    
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 8px;
+    font-weight: var(--font-medium);
+    box-shadow: 4px 4px 8px var(--black);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+}
+
+.botonAñadir:hover {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+}
+
+.botonAñadir:active {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+
+/* ----- Sección 5: Filtrar por géneros ----- */
+
+#peliculas {
+  padding: 16px 32px;
+}
+
+.selectorFiltro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.generoFilter {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #6f6f6f;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generoFilter:hover {
+  border: 2px solid var(--gold);
+}
+
+/* ----- Botón filtrar generos ----- */
+
+.botonFiltrar {
+    border: 2px solid var(--white-smoke);
+    color: var(--white-smoke);
+    background-color: var(--dark-grey);    
+    padding: 10px 20px;
+    width: 120px;
+    border-radius: 8px;
+    font-weight: var(--font-medium);
+    box-shadow: 4px 4px 8px var(--black);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+}
+
+.botonFiltrar:hover {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+}
+
+.botonFiltrar:active {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+/* ----- Card pelicula ----- */
+
+#allPeliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 16px;
+  margin-bottom: 24px;
+}
+
+.cardPelicula {
+  flex-direction: column;
+  margin-top: 16px; 
+  width: 334px;
+  background-color: var(--white-smoke);
+  box-shadow: 6px 6px 10px var(--black);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ← animación */
+  cursor: pointer;
+}
+
+.cardPelicula:hover {
+  transform: scale(1.05); /* ← se agranda */
+  box-shadow: 10px 10px 20px var(--black);
+}
+
+.cardPelicula h3,
+.cardPelicula p {
+  padding: 4px 8px;
+  margin: 16px;
+}
+
+.portada {
+  width: 334px;
+  height: 500px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* ----- Footer ----- */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 4px 32px;
+  background-color: var(--dark-grey);
+  color: var(--white-smoke);
+  margin-top: 24px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 4px -4px 8px var(--black);
 }

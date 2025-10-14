@@ -138,7 +138,7 @@ main{
 
 
 
-/* ----- Sección 3: Buscar pelicula por título ----- */
+/* ----- Sección 2: Buscar pelicula por título ----- */
 
 #buscar {
   padding: 32px 32px 20px 32px;
@@ -162,7 +162,39 @@ main{
   border: 2px solid var(--gold);
 }
 
+.portadaBuscar {
+   width: 227px;
+   height: 310px;
+   border-radius: 8px;
+}
 
+.tablaPelicula {
+  flex-wrap: wrap;
+  border: 2px solid var(--white-smoke);
+  background-color: var(--white-smoke);
+  padding: 16px;
+  width: 600px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 8px 8px 8px var(--black);
+}
+
+.tablaPelicula th {
+    color: var(--dark-grey);
+    padding: 10px;
+    text-align: start;
+    font-size: 32px;
+}
+
+.tablaPelicula td {
+    padding: 10px;
+    vertical-align: middle;  
+    border-bottom: 1px solid var(--dark-grey);
+}
+
+.botonesTabla button {
+  margin-right: 16px;
+}
 
 
 /* ----- Botón buscar película ----- */
@@ -255,6 +287,13 @@ main{
   margin-top: 24px;
 }
 
+#mensajeYear {
+  color: var(--white-smoke);
+  font-size: 16px;
+  font-weight: var(--font-medium);
+  margin-top: 0px;
+}
+
 /* ----- Botón añadir película ----- */
 
 .botonAñadir {
@@ -342,10 +381,15 @@ main{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px 16px;
+  gap: 12px 12px;
   margin-bottom: 24px;
 }
 
+
+.portada {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 .cardPelicula {
   flex-direction: column;
   margin-top: 16px; 
@@ -354,17 +398,18 @@ main{
   box-shadow: 6px 6px 10px var(--black);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ← animación */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
   cursor: pointer;
 }
 
 .cardPelicula:hover {
-  transform: scale(1.05); /* ← se agranda */
+  transform: scale(1.05);
   box-shadow: 10px 10px 20px var(--black);
 }
 
 .cardPelicula h3,
-.cardPelicula p {
+.cardPelicula p,
+.cardPelicula button {
   padding: 4px 8px;
   margin: 16px;
 }
@@ -375,6 +420,63 @@ main{
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
+
+.cardPelicula button {
+  margin-bottom: 24px;
+  margin-left: 24px ;
+}
+
+.delete-button {
+  
+  border: 2px solid var(--white-smoke);
+  color: var(--white-smoke);
+  background-color: var(--dark-grey);    
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 8px;
+  font-weight: var(--font-medium);
+  box-shadow: 4px 4px 8px var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button {
+  
+  border: 2px solid var(--dark-grey);
+  color: var(--dark-grey);    
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 8px;
+  font-weight: var(--font-medium);
+  box-shadow: 4px 4px 8px var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+}
+
+.delete-button:active {
+  background-color: var(--white-smoke);
+  color: var(--dark-grey);
+  border: 2px solid var(--dark-grey);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+.edit-button:hover {
+  background-color: var(--dark-grey);
+  color: var(--white-smoke);
+}
+
+.edit-button:active {
+  background-color: var(--dark-grey);
+  color: var(--white-smoke);
+  border: 2px solid var(--white-smoke);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
 
 /* ----- Footer ----- */
 

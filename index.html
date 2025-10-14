@@ -45,13 +45,15 @@
                 placeholder="Título de la película..."
                 required
             />
+            <div id="peliculaEcontrada"></div>
             <button class="botonBuscar">Buscar</button>
+            <div id="peliculasEcontradas"></div>
         </article>
     </section>
     <section id="añadir">
         <h2>Añade tu película</h2>
         <article class="formularioAñadir">
-            <form>
+            <form id="formularioAñadir">
                 <div class="fila">
                     <div class="campo">
                         <label>Título de la película</label>
@@ -62,6 +64,7 @@
                             placeholder="Insete el título..."
                             required
                         />
+                        <p id="mensajeTitulo"></p>
                     </div>
                     <div class="campo">
                         <label>Año de estreno</label>
@@ -72,6 +75,7 @@
                             placeholder="¿En que año se estreno"
                             required
                         />
+                        <p id="mensajeYear"></p>
                     </div>
                 </div>
                 <div class="fila">
@@ -81,17 +85,21 @@
                             type="text"
                             id="portada"
                             name="portada"
-                            placeholder="¿En que año se estreno"
+                            placeholder="¿En que año se estreno?"
                             required
                         />
+                        <p id="mensajePortada"></p>
                     </div>
                     <div class="campo">
                         <label>Género</label>
                         <select class="generoSelector" name="generoSelector">
-                            <option value="romance">Romance</option>
-                            <option value="musical">Musical</option>
-                            <option value="comedia">Comedia</option>
-                            <option value="accion">Acción</option>
+                            <option value="Todas">Todas</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Acción">Acción</option>
+                            <option value="Infantil">Infantil</option>
+                            <option value="Terror">Terror</option>
                         </select>
                     </div>
                 </div>
@@ -106,20 +114,18 @@
         <div class="selectorFiltro">
          <label>Buscar por género</label>
             <select class="generoFilter" name="generoFilter">
-                <option value="romance">Romance</option>
-                <option value="musical">Musical</option>
-                <option value="comedia">Comedia</option>
-                <option value="accion">Acción</option>
+                <option value="Todas">Todas</option>
+                <option value="Romance">Romance</option>
+                <option value="Musical">Musical</option>
+                <option value="Comedia">Comedia</option>
+                <option value="Acción">Acción</option>
+                <option value="Infantil">Infantil</option>
+                <option value="Terror">Terror</option>
             </select>
             <button class="botonFiltrar">Filtrar</button>
         </div>
+        <div id="peliculasFiltradas"></div>
         <div id="allPeliculas">
-            <!-- <article class="cardPelicula">
-                <img class="portada" src="./assets/regreso_al_futuro.jpg">    
-                <h3>Regreso al futuro</h3>
-                <p>1985</p>
-                <p>Ciencia ficción</p>
-            </article> -->
         </div>
     </section>
 </main>

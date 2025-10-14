@@ -7,7 +7,7 @@
 
     1. Crea un formulario para añadir una nueva película: título, año, descripción, url foto, género.
     2. Validar los campos del formulario
-    3. Que el campo año tenga 4 cifras y se encuentre entre el año 1800 y la fecha actual
+    3. Que el campo año tenga 4 cifras y se encuentre entre el año 1800 y la fecha actual 
     4. Crear un filtro para mostrar las películas por género
     5. Los géneros serán: terror, acción, comedia, romantica
     6. Almacenar las películas en un array

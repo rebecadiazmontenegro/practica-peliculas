@@ -3,13 +3,13 @@ const movies = [
     titulo: "Regreso al futuro",
     year: 1985,
     url_foto: "./assets/regreso_al_futuro.jpg",
-    genero: "Accion"
+    genero: "Acción"
 },
 {
     titulo: "King Creole",
     year: 1958,
     url_foto: "./assets/king_creole.jpg",
-    genero: "Músical"
+    genero: "Musical"
 },
 {
     titulo: "El Diablo viste de Prada",
@@ -39,7 +39,7 @@ const movies = [
     titulo: "Que bello es vivir",
     year: 1948,
     url_foto: "./assets/que_bello_es_vivir.jpg",
-    genero: "Infantil/Fantasía"
+    genero: "Infantil"
 },
 {
     titulo: "Los Teleñecos en Cuento de Navidad",
@@ -58,6 +58,12 @@ const movies = [
     year: 2002,
     url_foto: "./assets/lilo_y_stitch_jpg.jpeg",
     genero: "Comedia"
+},
+{
+    titulo: "El Silencio de los Corderos",
+    year: 1991,
+    url_foto: "./assets/el_silencio_de_los_corderos.jpg",
+    genero: "Terror"
 }
 ]
 

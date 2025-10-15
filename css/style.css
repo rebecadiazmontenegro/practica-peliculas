@@ -173,7 +173,7 @@ main{
   border: 2px solid var(--white-smoke);
   background-color: var(--white-smoke);
   padding: 16px;
-  width: 600px;
+  width: 450px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   box-shadow: 8px 8px 8px var(--black);
@@ -192,9 +192,7 @@ main{
     border-bottom: 1px solid var(--dark-grey);
 }
 
-.botonesTabla button {
-  margin-right: 16px;
-}
+
 
 
 /* ----- Botón buscar película ----- */
@@ -381,7 +379,7 @@ main{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px 12px;
+  gap: 12px 8px;
   margin-bottom: 24px;
 }
 
@@ -471,6 +469,61 @@ main{
 }
 
 .edit-button:active {
+  background-color: var(--dark-grey);
+  color: var(--white-smoke);
+  border: 2px solid var(--white-smoke);
+  box-shadow: inset 2px 2px 8px var(--black);
+}
+
+
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px;
+  gap: 32px;
+}
+
+.edit-form label {
+  color: var(--dark-grey);
+  font-weight: var(--font-medium);
+}
+
+.edit-form input,
+.edit-form select {
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #6f6f6f;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-form input:hover,
+.edit-form select:hover {
+  border: 2px solid var(--gold);
+}
+
+.edit-form button {
+  margin: 0 auto;
+  margin-top: 16px;
+  border: 2px solid var(--dark-grey);
+  color: var(--dark-grey);    
+  padding: 5px 10px;
+  width: 120px;
+  border-radius: 8px;
+  font-weight: var(--font-medium);
+  box-shadow: 2px 2px 8px var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-form button:hover {
+  background-color: var(--dark-grey);
+  color: var(--white-smoke);
+}
+
+.edit-form button:active {
   background-color: var(--dark-grey);
   color: var(--white-smoke);
   border: 2px solid var(--white-smoke);

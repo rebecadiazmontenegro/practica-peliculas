@@ -1,17 +1,16 @@
 import movies from "./movies.js" 
 console.log(movies)
 
-// -------- Todas las peliculas --------
+// --------------------------Todas las peliculas + Botón Delete + Botón Editar --------------------------
 
 const allPeliculas = document.getElementById("allPeliculas");
 console.log(allPeliculas)
 
 function mostrarPeliculas(movies) {
     let peliculaHTML = ""; 
-
     for (let i = 0; i < movies.length; i++) {
         peliculaHTML += `
-         <article class="cardPelicula">
+         <article class="cardPelicula" data-index="${i}">
             <img class="portada" src="${movies[i].url_foto}">    
             <h3>${movies[i].titulo}</h3>
             <p>${movies[i].year}</p>
@@ -20,66 +19,85 @@ function mostrarPeliculas(movies) {
             <button class="delete-button">Delete</button>
         </article>`;
     }
+allPeliculas.innerHTML = peliculaHTML; //Aqui se renderizan todas las películas del array.
 
-    allPeliculas.innerHTML = peliculaHTML; 
+
+    //BOTÓN DE BORRAR (sigue siendo parte de la función)
 
     const deleteButtons = document.querySelectorAll(".delete-button");
     deleteButtons.forEach(button => {
         button.addEventListener("click", (e) => {
-            const index = e.target.parentElement.dataset.index; //Asi conseguimos acceder al indice de la pelicula que queremos eliminar
-            movies.splice(index, 1); // con splice se elimina un elemento del array del array
-            mostrarPeliculas(movies); // vuelve a cargar las peliculas
+            const index = e.target.parentElement.dataset.index; 
+            Swal.fire({
+                title: "¿Seguro que quieres borrar esta película?",
+                text: "Si la eliminas no podras verla más en tu tablero",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#30d699ff",
+                cancelButtonColor: "#f32321",
+                confirmButtonText: "Si, eliminala"
+            })
+                .then((result) => {
+                if (result.isConfirmed) {
+                    movies.splice(index, 1);
+                    mostrarPeliculas(movies);
+                    Swal.fire({
+                        title: "¡Eliminado!",
+                        text: "Tu pelicula ha sido eliminada.",
+                        icon: "success"
+                    });
+                }
+            });
+
+        });
+    });
+
+// Boton de editar
+
+    const editButtons = document.querySelectorAll(".edit-button"); // Seleccionan todos los botones de editar dentro del innerHTML
+    editButtons.forEach((button) => { //Esto recorre el array que nos ha dado el paso anterior, osea cada uno de los botones
+        button.addEventListener("click", () => {
+            const article = button.parentElement; //Le atribuimos a la constante article el contenedor padre del boton que en mi caso es .cardPelicula, para que modifique la pelicula correcta
+            const index = article.dataset.index; //Localiza el indice de la pelicula gracias al data-index puesto en el artículo antes
+
+            //Cambiamos el contenido de la car por esto
+              article.innerHTML = `
+            <form class="edit-form">
+                <label>Portada: <input type="text" name="url_foto" value="${movies[index].url_foto}" required></label>
+                <label>Título: <input type="text" name="titulo" value="${movies[index].titulo}" required></label>
+                <label>Año: <input type="number" name="year" value="${movies[index].year}" required></label>
+                <label>Género:
+                    <select name="generoFilterEdit" required> 
+                        <option value="Romance" ${movies[index].genero === "Romance" ? "selected" : ""}>Romance</option>
+                        <option value="Musical" ${movies[index].genero === "Musical" ? "selected" : ""}>Musical</option>
+                        <option value="Comedia" ${movies[index].genero === "Comedia" ? "selected" : ""}>Comedia</option>
+                        <option value="Acción" ${movies[index].genero === "Acción" ? "selected" : ""}>Acción</option>
+                        <option value="Infantil" ${movies[index].genero === "Infantil" ? "selected" : ""}>Infantil</option>
+                        <option value="Terror" ${movies[index].genero === "Terror" ? "selected" : ""}>Terror</option>
+                    </select>
+                </label>
+                <button type="submit">Aceptar</button>
+            </form>
+        `; // Si el titulo de la pelicula coincide con el selector se queda puesto, asi se consigue que el selector salga con el genero que tiene la peli.
+            //Seleccinamos el formulario que hemos creado
+            const editForm = article.querySelector(".edit-form");
+            editForm.addEventListener("submit", (event) => { //Lo. que va a pasar cuando le das al boton de guardar
+                event.preventDefault();
+
+                movies[index].url_foto = editForm.elements.url_foto.value.trim();
+                movies[index].titulo = editForm.elements.titulo.value.trim();
+                movies[index].year = editForm.elements.year.value.trim();
+                movies[index].genero = editForm.elements.generoFilterEdit.value;
+
+                mostrarPeliculas(movies);
+            });
         });
     });
 }
-mostrarPeliculas(movies); 
-
-
-// const allPeliculas = document.getElementById("allPeliculas");
-// console.log(allPeliculas);
-
-// function mostrarPeliculas(movies) {
-//     let peliculaHTML = `
-//         <table class="tablaPeliculas">
-//             <thead>
-//                 <tr>
-//                     <th>Portada</th>
-//                     <th>Título</th>
-//                     <th>Año</th>
-//                     <th>Género</th>
-//                     <th>Acciones</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//     `;
-
-//     for (let i = 0; i < movies.length; i++) {
-//         peliculaHTML += `
-//             <tr>
-//                 <td><img class="portada" src="${movies[i].url_foto}" alt="${movies[i].titulo}" style="width:100px;"></td>
-//                 <td>${movies[i].titulo}</td>
-//                 <td>${movies[i].year}</td>
-//                 <td>${movies[i].genero}</td>
-//                 <td>
-//                     <button class="edit-button">Edit</button>
-//                     <button class="delete-button">Delete</button>
-//                 </td>
-//             </tr>
-//         `;
-//     }
-
-//     peliculaHTML += `
-//             </tbody>
-//         </table>
-//     `;
-
-//     allPeliculas.innerHTML = peliculaHTML;
-
-
 mostrarPeliculas(movies);
 
 
-// -------- Añadir película y validar formulario --------
+// -------------------------- Añadir película y validar formulario --------------------------
 
 const formularioAñadir = document.getElementById("formularioAñadir");
 const formularioYear = document.getElementById("year");
@@ -157,7 +175,9 @@ formularioAñadir.addEventListener("submit", (e) => {
         mensajePortada.textContent = "";
     }
 });
-// --- Buscar pelicula por título ----
+
+
+// -------------------------- Buscar pelicula por título --------------------------
 
 const buscador = document.getElementById("buscador");
 const botonBuscar = document.querySelector(".botonBuscar");
@@ -181,19 +201,16 @@ botonBuscar.addEventListener("click", (e) => {
                 <tr>
                     <td><b>Género:</b> ${peliculaEncontrada.genero}</td>
                 </tr>
-                <tr>
-                    <td class=botonesTabla>
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
-                    </td>
-                </tr>
             </table>`
     } else {
         peliculasEcontradas.innerHTML = `<p>No se encontró ninguna película con ese título.</p>`;
     }
 });
 
-// -------- Filtrar por género --------
+
+
+
+// -------------------------- Filtrar por género --------------------------
 
 const generoFilter = document.querySelector(".generoFilter");
 const botonFiltrar = document.querySelector(".botonFiltrar");

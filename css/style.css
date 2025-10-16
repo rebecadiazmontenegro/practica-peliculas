@@ -129,6 +129,7 @@ nav ul {
 /* -------------------- Sección 1: Home -------------------- */
 
 #home {
+  scroll-margin-top: 108px;
   background: url(../assets/cinema.jpeg);
   background-size: cover;      
   background-position: center; 

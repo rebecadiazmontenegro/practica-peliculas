@@ -43,3 +43,11 @@ El proyecto está dividido en dos fases con las siguientes instrucciones:
 | Filtro por nombre de película                 | Input con `includes`                           | ✅ Completado |
 | Editar una película                           | Edición completada pero carece de Regex aún                        | ⚠️ En progreso |
 | Borrar una película                           | Falta confirmación de borrado                   | ✅ Completado |
+
+# 📲 Diseño responsive
+![Texto alternativo](./assets/Responsive.jpg)
+
+# 🖥️ Link para Github Pages
+
+https://rebecadiazmontenegro.github.io/practica-peliculas/
+

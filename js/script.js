@@ -119,6 +119,10 @@ const formularioYear = document.getElementById("year");
 const formularioTitulo = document.getElementById("titulo");
 const formularioPortada = document.getElementById("portada");
 
+const tituloInput = document.getElementById("titulo");
+const yearInput = document.getElementById("year");
+const portadaInput = document.getElementById("portada");
+
 const mensajeTitulo = document.getElementById("mensajeTitulo");
 const mensajeYear = document.getElementById("mensajeYear");
 const mensajePortada = document.getElementById("mensajePortada");
@@ -142,6 +146,7 @@ formularioAñadir.addEventListener("submit", (e) => {
     if (!regexTitulo.test(titulo)) {
         mensajeTitulo.textContent = "El título debe contener al menos un carácter.";
         mensajeTitulo.style.color = "#f32321";
+        tituloInput.style.border = "1px solid #f32321"
         valido = false; // Si pasa esto no es valido por lo que se pone false
 
     } else {
@@ -152,10 +157,12 @@ formularioAñadir.addEventListener("submit", (e) => {
     if (!regexYear.test(year)) {
         mensajeYear.textContent = "El año debe tener 4 cifras numéricas.";
         mensajeYear.style.color = "#f32321";
+        yearInput.style.border = "1px solid #f32321"
         valido = false;
     } else if (year < 1800 || year > 2025) {
         mensajeYear.textContent = "El año debe estar entre 1800 y 2025.";
         mensajeYear.style.color = "#f32321";
+        yearInput.style.border = "1px solid #f32321"
         valido = false;
     } else {
         mensajeYear.textContent = "Año válido";
@@ -165,6 +172,7 @@ formularioAñadir.addEventListener("submit", (e) => {
     if (!regexPortada.test(url_foto)) {
         mensajePortada.textContent = "Debe ser una URL válida (jpg, png, jpeg, gif, webp).";
         mensajePortada.style.color = "#f32321";
+        portadaInput.style.border = "1px solid #f32321"
         valido = false;
     } else {
         mensajePortada.textContent = "URL válida";

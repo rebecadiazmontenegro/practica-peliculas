@@ -56,7 +56,7 @@ const movies = [
 {
     titulo: "Lilo & Stitch",
     year: 2002,
-    url_foto: "./assets/lilo_y_stitch_jpg.jpeg",
+    url_foto: "./assets/lilo_y_stitch_jpg.jpg",
     genero: "Comedia"
 },
 {

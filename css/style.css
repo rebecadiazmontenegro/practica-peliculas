@@ -13,12 +13,15 @@
   
 }
 
+html {
+  scroll-behavior:smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: var(--font-regular);
-  background-color: var(--dark-grey);
-  
+  background-color: var(--dark-grey);  
 }
 
 h1 {
@@ -47,8 +50,7 @@ label {
   color: var(--white-smoke);
 }
 
-
-/* ----- Header ----- */
+/* --------------------  Header -------------------- */
 
 header {
   display: flex;
@@ -67,7 +69,7 @@ header {
   z-index: 10;
 }
 
-/* ----- Navegador ----- */
+/* -------------------- Navegador -------------------- */
 
 nav ul {
   display: flex;
@@ -98,14 +100,13 @@ nav ul {
   box-shadow: inset 2px 2px 8px var(--black);
 }
 
-
-
-/* ----- Sección 1: Bienvenido ----- */
-
 main{
-    width: 100%;
-    flex-grow: 1;
+  flex-grow: 1; /* Para que empuje abajo */
+  width: 100%;
 }
+
+
+/* -------------------- Sección 1: Home -------------------- */
 
 #home {
   background: url(../assets/cinema.jpeg);
@@ -124,6 +125,7 @@ main{
   display: flex;
   flex-direction: column;
   padding: 24px;
+  gap: 0px;
   border: 4px solid var(--dark-grey);
   border-radius: 16px;
   background-color: rgba(242, 244, 243, 0.7); /* Tiene que estar en rgb para poder añadirle algo de transparencia */
@@ -134,13 +136,13 @@ main{
 
 .bienvenido h1 {
  font-size: 50px;
+ margin-bottom:0%;
 }
 
-
-
-/* ----- Sección 2: Buscar pelicula por título ----- */
+/* -------------------- Sección 2: Buscar pelicula por título -------------------- */
 
 #buscar {
+  scroll-margin-top: 108px;
   padding: 32px 32px 20px 32px;
 }
 
@@ -162,10 +164,13 @@ main{
   border: 2px solid var(--gold);
 }
 
+
+/* ----- Tabla con pelicula nueva ----- */
+
 .portadaBuscar {
-   width: 227px;
-   height: 310px;
-   border-radius: 8px;
+  width: 227px;
+  height: 310px;
+  border-radius: 8px;
 }
 
 .tablaPelicula {
@@ -180,35 +185,31 @@ main{
 }
 
 .tablaPelicula th {
-    color: var(--dark-grey);
-    padding: 10px;
-    text-align: start;
-    font-size: 32px;
+  color: var(--dark-grey);
+  padding: 10px;
+  text-align: start;
+  font-size: 32px;
 }
 
 .tablaPelicula td {
-    padding: 10px;
-    vertical-align: middle;  
-    border-bottom: 1px solid var(--dark-grey);
+  padding: 10px;
+  vertical-align: middle;  
+  border-bottom: 1px solid var(--dark-grey);
 }
-
-
-
 
 /* ----- Botón buscar película ----- */
 
 .botonBuscar {
-    border: 2px solid var(--white-smoke);
-    color: var(--white-smoke);
-    background-color: var(--dark-grey);    
-    padding: 10px 20px;
-    width: 120px;
-    border-radius: 8px;
-    font-weight: var(--font-medium);
-    box-shadow: 4px 4px 8px var(--black);
-    cursor: pointer;
-    transition: background-color 0.3s;
-  
+  border: 2px solid var(--white-smoke);
+  color: var(--white-smoke);
+  background-color: var(--dark-grey);    
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 8px;
+  font-weight: var(--font-medium);
+  box-shadow: 4px 4px 8px var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s; 
 }
 
 .botonBuscar:hover {
@@ -224,9 +225,10 @@ main{
 
 
 
-/* ----- Sección 4: Añadir película----- */
+/* -------------------- Sección 4: Añadir película -------------------- */
 
 #añadir {
+  scroll-margin-top: 108px;
   padding: 16px 32px;
 }
 
@@ -240,24 +242,28 @@ main{
 }
 
 .formularioAñadir form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+#mensajeBuscador {
+  margin: 0%;
 }
 
 .fila {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Hace dos columnas iguales */
-    width: 100%;
-    gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Hace dos columnas iguales */
+  width: 100%;
+  gap: 32px;
 }
 
 .campo {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 
 .campo input,
@@ -285,12 +291,6 @@ main{
   margin-top: 24px;
 }
 
-#mensajeYear {
-  color: var(--white-smoke);
-  font-size: 16px;
-  font-weight: var(--font-medium);
-  margin-top: 0px;
-}
 
 /* ----- Botón añadir película ----- */
 
@@ -320,9 +320,10 @@ main{
 }
 
 
-/* ----- Sección 5: Filtrar por géneros ----- */
+/* -------------------- Sección 5: Filtrar por géneros -------------------- */
 
 #peliculas {
+  scroll-margin-top: 108px;
   padding: 16px 32px;
 }
 
@@ -349,17 +350,16 @@ main{
 /* ----- Botón filtrar generos ----- */
 
 .botonFiltrar {
-    border: 2px solid var(--white-smoke);
-    color: var(--white-smoke);
-    background-color: var(--dark-grey);    
-    padding: 10px 20px;
-    width: 120px;
-    border-radius: 8px;
-    font-weight: var(--font-medium);
-    box-shadow: 4px 4px 8px var(--black);
-    cursor: pointer;
-    transition: background-color 0.3s;
-  
+  border: 2px solid var(--white-smoke);
+  color: var(--white-smoke);
+  background-color: var(--dark-grey);    
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 8px;
+  font-weight: var(--font-medium);
+  box-shadow: 4px 4px 8px var(--black);
+  cursor: pointer;
+  transition: background-color 0.3s; 
 }
 
 .botonFiltrar:hover {
@@ -379,19 +379,14 @@ main{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px 8px;
+  gap: 12px 12px;
   margin-bottom: 24px;
 }
 
-
-.portada {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
 .cardPelicula {
   flex-direction: column;
   margin-top: 16px; 
-  width: 334px;
+  width: 324px;
   background-color: var(--white-smoke);
   box-shadow: 6px 6px 10px var(--black);
   border-top-left-radius: 16px;
@@ -405,6 +400,13 @@ main{
   box-shadow: 10px 10px 20px var(--black);
 }
 
+.portada {
+  width: 324px;
+  height: 490px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
 .cardPelicula h3,
 .cardPelicula p,
 .cardPelicula button {
@@ -412,25 +414,17 @@ main{
   margin: 16px;
 }
 
-.portada {
-  width: 334px;
-  height: 500px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
 .cardPelicula button {
   margin-bottom: 24px;
-  margin-left: 24px ;
 }
 
 .delete-button {
-  
   border: 2px solid var(--white-smoke);
   color: var(--white-smoke);
   background-color: var(--dark-grey);    
   padding: 10px 20px;
   width: 120px;
+  margin-right: 14px;
   border-radius: 8px;
   font-weight: var(--font-medium);
   box-shadow: 4px 4px 8px var(--black);
@@ -439,11 +433,11 @@ main{
 }
 
 .edit-button {
-  
   border: 2px solid var(--dark-grey);
   color: var(--dark-grey);    
   padding: 10px 20px;
   width: 120px;
+  margin-left: 14px ;
   border-radius: 8px;
   font-weight: var(--font-medium);
   box-shadow: 4px 4px 8px var(--black);
@@ -474,8 +468,6 @@ main{
   border: 2px solid var(--white-smoke);
   box-shadow: inset 2px 2px 8px var(--black);
 }
-
-
 
 .edit-form {
   display: flex;
@@ -531,7 +523,7 @@ main{
 }
 
 
-/* ----- Footer ----- */
+/* -------------------- Footer -------------------- */
 
 footer {
   display: flex;
@@ -546,3 +538,7 @@ footer {
   border-top-right-radius: 16px;
   box-shadow: 4px -4px 8px var(--black);
 }
+
+
+/* -------------------- Media Querys -------------------- */
+

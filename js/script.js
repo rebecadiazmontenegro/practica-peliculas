@@ -1,7 +1,7 @@
 import movies from "./movies.js" 
 console.log(movies)
 
-// --------------------------Todas las peliculas + Botón Delete + Botón Editar --------------------------
+// -------------------------- Todas las peliculas + Botón Delete + Botón Editar --------------------------
 
 const allPeliculas = document.getElementById("allPeliculas");
 console.log(allPeliculas)
@@ -52,7 +52,7 @@ allPeliculas.innerHTML = peliculaHTML; //Aqui se renderizan todas las películas
         });
     });
 
-// Boton de editar
+    //BOTÓN DE EDITAR (sigue siendo parte de la función)
 
     const editButtons = document.querySelectorAll(".edit-button"); // Seleccionan todos los botones de editar dentro del innerHTML
     editButtons.forEach((button) => { //Esto recorre el array que nos ha dado el paso anterior, osea cada uno de los botones
@@ -167,7 +167,7 @@ formularioAñadir.addEventListener("submit", (e) => {
 
         movies.push(nuevaPelicula); //Aquí se hace push al array de movies
         mostrarPeliculas(movies); // Vuelve a llamar a la función para que se actualice con la pelicula nueva
-        formularioAñadir.reset();
+        formularioAñadir.reset(); // Para que se vacie el formulario 
 
 // Para que ya no salga la validación una vez se ha subido la pelicula
         mensajeTitulo.textContent = "";
@@ -179,13 +179,25 @@ formularioAñadir.addEventListener("submit", (e) => {
 
 // -------------------------- Buscar pelicula por título --------------------------
 
+const mensajeBuscador = document.getElementById("mensajeBuscador")
 const buscador = document.getElementById("buscador");
 const botonBuscar = document.querySelector(".botonBuscar");
 const peliculasEcontradas = document.getElementById("peliculasEcontradas");
+
+buscador.addEventListener("input", () => { //Hace que el mensaje de alerta se quite cuando vuelves a escribir
+    mensajeBuscador.textContent = "";
+});
+
 botonBuscar.addEventListener("click", (e) => {
     e.preventDefault();
     const tituloBuscado = buscador.value.trim().toLowerCase();
-    const peliculaEncontrada = movies.find(movie => movie.titulo.toLowerCase() === tituloBuscado);
+
+    if (!tituloBuscado) {
+        mensajeBuscador.textContent = "Introduzca un título";
+        mensajeBuscador.style.color = "#f32321";
+        return;
+    }
+    const peliculaEncontrada = movies.find(movie => movie.titulo.toLowerCase().includes(tituloBuscado));
     if (peliculaEncontrada) {
         peliculasEcontradas.innerHTML = `
             <table class=tablaPelicula>
@@ -209,7 +221,6 @@ botonBuscar.addEventListener("click", (e) => {
 
 
 
-
 // -------------------------- Filtrar por género --------------------------
 
 const generoFilter = document.querySelector(".generoFilter");
@@ -217,7 +228,6 @@ const botonFiltrar = document.querySelector(".botonFiltrar");
 
 botonFiltrar.addEventListener("click", () => { //Aqui le digo que cada vez que pulse el botón pasará lo siguiente:
     const generoSeleccionado = generoFilter.value;
-
     if (generoSeleccionado === "Todas") {
         let pelicula = ""
         for (let i = 0; i < movies.length; i++) {

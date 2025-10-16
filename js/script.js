@@ -1,5 +1,20 @@
 import movies from "./movies.js" 
-console.log(movies)
+
+// -------------------------- Menú hamburguesa --------------------------
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("active"); //Añade la clase del css correspondiente, el despligue del menu
+});
+
+document.querySelectorAll(".menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("active"); //Quita la clase del CSS añadida antes, en este caso el despliegue del menu
+  });
+});
+
 
 // -------------------------- Todas las peliculas + Botón Delete + Botón Editar --------------------------
 
@@ -165,7 +180,7 @@ formularioAñadir.addEventListener("submit", (e) => {
             genero: genero
         };
 
-        movies.push(nuevaPelicula); //Aquí se hace push al array de movies
+        movies.unshift(nuevaPelicula); //Aquí se hace push al array de movies pero al incio
         mostrarPeliculas(movies); // Vuelve a llamar a la función para que se actualice con la pelicula nueva
         formularioAñadir.reset(); // Para que se vacie el formulario 
 
@@ -264,7 +279,7 @@ botonFiltrar.addEventListener("click", () => { //Aqui le digo que cada vez que p
     }
 });
 
- 
+
 
 
 

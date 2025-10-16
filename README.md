@@ -1,5 +1,6 @@
 
-# Películas
+# Web FILM
+[](./assets/portada_readme.png)
 
 ## Crear una aplicación que solicite ingresar una serie de películas a través de un formulario y las muestre en una tabla.
 

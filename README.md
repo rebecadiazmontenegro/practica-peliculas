@@ -51,3 +51,8 @@ El proyecto está dividido en dos fases con las siguientes instrucciones:
 
 https://rebecadiazmontenegro.github.io/practica-peliculas/
 
+## 👩🏼‍💻 Autora
+Nombre: Rebeca
+Apellidos: Díaz-Montenegro Sánchez
+Linkdin: https://www.linkedin.com/in/rebeca-diaz-montenegro-s%C3%A1nchez-818515245/
+

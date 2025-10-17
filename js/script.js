@@ -196,6 +196,9 @@ formularioAñadir.addEventListener("submit", (e) => {
         mensajeTitulo.textContent = "";
         mensajeYear.textContent = "";
         mensajePortada.textContent = "";
+        tituloInput.style.border = "1px solid #6f6f6f"
+        yearInput.style.border = "1px solid #6f6f6f"
+        portadaInput.style.border = "1px solid #6f6f6f"
     }
 });
 
